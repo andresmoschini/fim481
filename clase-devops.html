@@ -13575,16 +13575,19 @@ Porcentuales, no promedios.</p></div><div class="bespoke-marp-note" data-index="
 0,5% mes = 3h 36m
 0,1% = 43m
 0,01 = 4m
-0,001 = 26s
+0,001 = 26s (cuidado, cómo medimos esto?)
 
 La negociación entre áreas con objetivos opuestos se reemplaza por una regla acordada de antemano sobre un número que ambas observan. Dev y Ops dejan de tener objetivos enfrentados porque comparten uno solo.
 
-¿qué pasa si a fin de mes sobró el 90 % del presupuesto?
+¿Qué pasa si a fin de mes sobró el 90 % del presupuesto?
 
 El objetivo es demasiado conservador, o se está publicando menos de lo posible. El presupuesto no gastado también es información.
 
+Google Chubby Lock Service (Bloqueo para sistemas distribuidos) Generaban caídas controladas cuando se superaba el objetivo para que los clientes se adapten.
 
-Google Chubby Lock Service (Bloqueo para sistemas distribuidos) Generaban caídas controladas cuando se superaba el objetivo para que los clientes se adapten.</p></div><div class="bespoke-marp-note" data-index="30" tabindex="0"><p>[20:20]</p><p>No hace falta respuesta elaborada, instalar la incomodidad.
+Cuando una operación depende de varios servicios, su SLI se corresponde a la múltiplicación de ellos.
+
+También es importante el burn rate (porque podemos estar bien pero consumir muy rápido), podemos utilizar ventanas múltiples</p></div><div class="bespoke-marp-note" data-index="30" tabindex="0"><p>[20:20]</p><p>No hace falta respuesta elaborada, instalar la incomodidad.
 
 - La muestra rara vez es aleatoria: los cambios salteados suelen ser los urgentes (hotfixes), que son los que menos aparecen en un muestreo por conveniencia.
 
@@ -13625,7 +13628,11 @@ Límites:
 - ¿Quién controla al control? Las reglas de protección y las políticas también son código: versionadas, revisadas,</p></div><div class="bespoke-marp-note" data-index="34" tabindex="0"><p>[20:40]</p><p>Hábito: Las cuatro horas de la prensa. El checklist de cuarenta pasos.
 Alcance limitado: El comité de cambios y el módulo de consulta.</p></div><div class="bespoke-marp-note" data-index="36" tabindex="0"><p>Es una pregunta de ingeniería: admite que la respuesta puede ser &quot;poco&quot;, y aun así obliga a mirar las cinco por separado.
 
-El margen es distinto para cada variable, y casi nunca es cero para todas</p></div><div class="bespoke-marp-note" data-index="37" tabindex="0"><p>Ninguna regulación impide integrar seguido, probar automáticamente, ni acordar los casos antes de escribir el código. Lo que suele estar limitado es publicar, no aprender.</p></div><div class="bespoke-marp-note" data-index="39" tabindex="0"><p>[21:10]</p><p>Programa de investigación con encuestas anuales a decenas de miles de profesionales, sistematizado en Accelerate (2018) y continuado en los State of DevOps Report.
+El margen es distinto para cada variable, y casi nunca es cero para todas</p></div><div class="bespoke-marp-note" data-index="37" tabindex="0"><p>Ninguna regulación impide integrar seguido, probar automáticamente, ni acordar los casos antes de escribir el código. Lo que suele estar limitado es publicar, no aprender.</p></div><div class="bespoke-marp-note" data-index="38" tabindex="0"><p>_Pero el dispositivo no deja de tener sus propias reglas:_
+
+- El SLI **no es disponibilidad**: es la tasa de **rechazo falso** y de **aceptación indebida**.
+- La decisión es **local**, fechada y auditable **sin red**.
+- El **canary es por familia de hardware**, no un porcentaje global de la flota.</p></div><div class="bespoke-marp-note" data-index="39" tabindex="0"><p>[21:10]</p><p>Programa de investigación con encuestas anuales a decenas de miles de profesionales, sistematizado en Accelerate (2018) y continuado en los State of DevOps Report.
 
 Hasta 2023 tenía cuatro indicadores principales. En 2024 se agregó una quinta: deployment rework rate.</p></div><div class="bespoke-marp-note" data-index="40" tabindex="0"><p>Lead time se mide desde el commit hasta producción, no desde que se pidió la funcionalidad. Mide el flujo de entrega, no el proceso de decisión previo. Es deliberado para facilitar la medición.
 
